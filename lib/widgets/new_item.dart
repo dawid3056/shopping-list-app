@@ -36,6 +36,7 @@ class _NewItemState extends State<NewItem> {
       appBar: AppBar(
         centerTitle: true,
         title: const Text('Add a new item'),
+        backgroundColor: Theme.of(context).colorScheme.onPrimary,
       ),
       body: Padding(
         padding: const EdgeInsets.all(12),
@@ -128,11 +129,24 @@ class _NewItemState extends State<NewItem> {
                     onPressed: () {
                       _formKey.currentState!.reset();
                     },
-                    child: const Text('Reset'),
+                    child: Text(
+                      'Reset',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
                   ),
                   ElevatedButton(
                     onPressed: _saveItem,
-                    child: const Text('Add Item'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Theme.of(context).colorScheme.onPrimary,
+                    ),
+                    child: Text(
+                      'Add Item',
+                      style: TextStyle(
+                        color: Theme.of(context).colorScheme.primary,
+                      ),
+                    ),
                   ),
                 ],
               ),
