@@ -120,15 +120,24 @@ class _GroceryListState extends State<GroceryList> {
           onDismissed: (direction) {
             _removeItem(_groceryItems[index]);
           },
-          child: ListTile(
-            title: Text(_groceryItems[index].name),
-            leading: Container(
-              height: 24,
-              width: 24,
-              color: _groceryItems[index].category.color,
-            ),
-            trailing: Text(
-              _groceryItems[index].quantity.toString(),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Card(
+              color: Theme.of(context).colorScheme.surface,
+              child: ListTile(
+                title: Text(_groceryItems[index].name),
+                leading: Container(
+                  height: 24,
+                  width: 24,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(8),
+                    color: _groceryItems[index].category.color,
+                  ),
+                ),
+                trailing: Text(
+                  _groceryItems[index].quantity.toString(),
+                ),
+              ),
             ),
           ),
         ),
