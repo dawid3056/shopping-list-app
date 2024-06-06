@@ -26,7 +26,7 @@ class _GroceryListState extends State<GroceryList> {
 
   void _loadItems() async {
     final url = Uri.https(
-      'shoppinglist-888c9-default-rtdb.europe-west1.firebasedatabase.app',
+      'FIREBASE_DATABASE_URL',
       'shopping-list.json',
     );
     try {
@@ -87,7 +87,7 @@ class _GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
     final url = Uri.https(
-      'shoppinglist-888c9-default-rtdb.europe-west1.firebasedatabase.app',
+      'FIREBASE_DATABASE_URL',
       'shopping-list/${item.id}.json',
     );
     final response = await http.delete(url);
