@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:shopping_list_app/data/categories.dart';
 import 'package:shopping_list_app/models/grocery_item.dart';
 import 'package:shopping_list_app/widgets/new_item.dart';
@@ -26,7 +27,7 @@ class _GroceryListState extends State<GroceryList> {
 
   void _loadItems() async {
     final url = Uri.https(
-      'shoppinglist-888c9-default-rtdb.europe-west1.firebasedatabase.app',
+      'FIREBASE_DATABASE_URL',
       'shopping-list.json',
     );
     try {
@@ -87,7 +88,7 @@ class _GroceryListState extends State<GroceryList> {
       _groceryItems.remove(item);
     });
     final url = Uri.https(
-      'shoppinglist-888c9-default-rtdb.europe-west1.firebasedatabase.app',
+      dotenv.env['FIREBASE_DATABASE_URL']!,
       'shopping-list/${item.id}.json',
     );
     final response = await http.delete(url);
